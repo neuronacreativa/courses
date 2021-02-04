@@ -22,7 +22,7 @@ docker run -p 8081:8081 nc/monolith
 
 [http://localhost:8081/h2-console](http://localhost:8081/h2-console)
 
-### Credentials
+### H2 Credentials
 ```
 JDBC URL: jdbc:h2:mem:monolithdb
 User Name: monolith

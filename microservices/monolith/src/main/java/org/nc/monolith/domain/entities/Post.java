@@ -1,15 +1,11 @@
 package org.nc.monolith.domain.entities;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,11 +24,6 @@ public class Post {
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_uuid", nullable = false)
 	private User user;
-	@OneToMany(
-			cascade = CascadeType.ALL,
-	        fetch = FetchType.LAZY, 
-	        mappedBy = "post")
-	private List<Comment> comments;
 	
 	public String getUuid() {
 		return uuid;
@@ -64,12 +55,5 @@ public class Post {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public List<Comment> getComments() {
-		return comments;
-	}
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-	
 	
 }
