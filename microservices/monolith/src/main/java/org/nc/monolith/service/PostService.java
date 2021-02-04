@@ -7,8 +7,8 @@ import org.nc.monolith.domain.dto.response.PostResponse;
 import org.nc.monolith.domain.dto.response.UserResponse;
 import org.nc.monolith.domain.entities.Post;
 import org.nc.monolith.domain.entities.User;
+import org.nc.monolith.domain.repositories.PostRepository;
 import org.nc.monolith.domain.services.MonolithService;
-import org.nc.monolith.infrastructure.persistence.h2.H2PostRepository;
 import org.nc.monolith.infrastructure.persistence.h2.H2UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class PostService  implements MonolithService{
 	@Autowired
 	private H2UserRepository userRepository;
 	
-	public PostResponse create(PostRequest postRequest, H2PostRepository repository) {
+	public PostResponse create(PostRequest postRequest, PostRepository repository) {
 		
 		Post post = new Post();
 		User user = userRepository.findByUuid(postRequest.getUuidUser());
@@ -27,7 +27,6 @@ public class PostService  implements MonolithService{
 		post.setTitle(postRequest.getTitle());
 		post.setContent(postRequest.getContent());
 		post.setUser(user);
-		post.setCommentCount(0);
 		
 		user.setPostCount(user.getPostCount() + 1);
 		userRepository.save(user);
@@ -48,13 +47,12 @@ public class PostService  implements MonolithService{
 		postResponse.setTitle(post.getTitle());
 		postResponse.setContent(post.getContent());
 		postResponse.setUser(userResponse);
-		postResponse.setCommentCount(post.getCommentCount());
 		
 		return postResponse;
 		
 	}
 	
-	public PostResponse read(String uuid, H2PostRepository repository) {
+	public PostResponse read(String uuid, PostRepository repository) {
 		
 		Post post = repository.findByUuid(uuid);
 		User user = post.getUser();
@@ -73,13 +71,12 @@ public class PostService  implements MonolithService{
 		postResponse.setTitle(post.getTitle());
 		postResponse.setContent(post.getContent());
 		postResponse.setUser(userResponse);
-		postResponse.setCommentCount(post.getCommentCount());
 		
 		return postResponse;
 		
 	}
 	
-	public PostResponse update(String uuid, PostRequest postRequest, H2PostRepository repository) {
+	public PostResponse update(String uuid, PostRequest postRequest, PostRepository repository) {
 		
 		Post post = repository.findByUuid(uuid);
 		User user = post.getUser();
@@ -103,12 +100,11 @@ public class PostService  implements MonolithService{
 		postResponse.setTitle(post.getTitle());
 		postResponse.setContent(post.getContent());
 		postResponse.setUser(userResponse);
-		postResponse.setCommentCount(post.getCommentCount());
 		
 		return postResponse;
 	}
 	
-	public void delete(String uuid, H2PostRepository repository) {
+	public void delete(String uuid, PostRepository repository) {
 		
 		String userUuid = repository.findByUuid(uuid).getUser().getUuid();
 		

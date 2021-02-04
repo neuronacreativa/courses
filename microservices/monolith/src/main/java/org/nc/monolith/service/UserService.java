@@ -5,14 +5,14 @@ import java.util.UUID;
 import org.nc.monolith.domain.dto.request.UserRequest;
 import org.nc.monolith.domain.dto.response.UserResponse;
 import org.nc.monolith.domain.entities.User;
+import org.nc.monolith.domain.repositories.UserRepository;
 import org.nc.monolith.domain.services.MonolithService;
-import org.nc.monolith.infrastructure.persistence.h2.H2UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements MonolithService{
 
-	public UserResponse create(UserRequest userRequest, H2UserRepository repository) {
+	public UserResponse create(UserRequest userRequest, UserRepository repository) {
 		
 		User user = new User();
 		user.setUuid(UUID.randomUUID().toString());
@@ -37,7 +37,7 @@ public class UserService implements MonolithService{
 		
 	}
 	
-	public UserResponse read(String uuid, H2UserRepository repository) {
+	public UserResponse read(String uuid, UserRepository repository) {
 		
 		User user = repository.findByUuid(uuid);
 		UserResponse userResponse = new UserResponse();
@@ -53,7 +53,7 @@ public class UserService implements MonolithService{
 		
 	}
 	
-	public UserResponse update(String uuid, UserRequest userRequest, H2UserRepository repository) {
+	public UserResponse update(String uuid, UserRequest userRequest, UserRepository repository) {
 		
 		User user = repository.findByUuid(uuid);
 		
@@ -76,7 +76,7 @@ public class UserService implements MonolithService{
 		return userResponse;
 	}
 	
-	public void delete(String uuid, H2UserRepository repository) {
+	public void delete(String uuid, UserRepository repository) {
 		repository.deleteByUuid(uuid);
 	}
 }

@@ -19,20 +19,12 @@ public class Post {
 	private String title;
 	@Column(name = "CONTENT", nullable = false)
 	private String content;
-	@Column(name = "COMMENTCOUNT", nullable = false)
-	private Integer commentCount;
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_uuid", nullable = false)
 	private User user;
 	
 	public String getUuid() {
 		return uuid;
-	}
-	public Integer getCommentCount() {
-		return commentCount;
-	}
-	public void setCommentCount(Integer commentCount) {
-		this.commentCount = commentCount;
 	}
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
