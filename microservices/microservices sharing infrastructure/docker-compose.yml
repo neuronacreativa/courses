@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  posts-microlith:
+    container_name: posts-microlith
+    hostname: posts-microlith
+    build: posts/
+    #volumes:
+    #  - ./docker/tomcat/app/logs:/usr/local/tomcat/logs
+    #  - ./docker/tomcat/app/webapps:/usr/local/tomcat/webapps:rw
+    #  - ./docker/tomcat/app/conf:/usr/local/tomcat/conf:rw
+    ports:
+      - 8082:8082
+    depends_on:
+      - mysql
+
+  users-microlith:
+    container_name: users-microlith
+    hostname: users-microlith
+    build: users/
+    #volumes:
+    #  - ./docker/tomcat/app/logs:/usr/local/tomcat/logs
+    #  - ./docker/tomcat/app/webapps:/usr/local/tomcat/webapps:rw
+    #  - ./docker/tomcat/app/conf:/usr/local/tomcat/conf:rw
+    ports:
+      - 8083:8083
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mysql-microlith
+    build:
+      context: docker/mysql
+    ports:
+      - 13306:3306
+    volumes:
+      - ./docker/mysql/data/db:/var/lib/mysql
+    command:
+      - "--default-authentication-plugin=mysql_native_password"
+      - "--lower_case_table_names=1"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql

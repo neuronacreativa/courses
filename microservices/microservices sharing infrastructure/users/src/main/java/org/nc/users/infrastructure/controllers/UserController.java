@@ -53,7 +53,7 @@ public class UserController {
 		);
 	}
     
-    @PutMapping("/increasePostCount/{uuid}")
+    @GetMapping("/increasePostCount/{uuid}")
 	public ResponseEntity<UserResponse> increasePostCount(
 			@PathVariable("uuid") String uuid){
 		
@@ -62,7 +62,7 @@ public class UserController {
 		);
 	}
     
-    @PutMapping("/decreasePostCount/{uuid}")
+    @GetMapping("/decreasePostCount/{uuid}")
 	public ResponseEntity<UserResponse> decreasePostCount(
 			@PathVariable("uuid") String uuid){
 		
