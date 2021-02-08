@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  posts-microlith:
+    container_name: posts-microlith
+    hostname: posts-microlith
+    build: posts/
+    ports:
+      - 8082:8082
+
+  users-microlith:
+    container_name: users-microlith
+    hostname: users-microlith
+    build: users/
+    ports:
+      - 8083:8083

@@ -1,0 +1,14 @@
+package org.nc.posts.infrastructure.persistence.h2;
+import org.nc.posts.domain.entities.Post;
+import org.nc.posts.domain.repositories.PostRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
+public interface H2PostRepository extends PostRepository, CrudRepository<Post, String>{
+	
+	public Post findByUuid(String uuid);
+	
+	public void deleteByUuid(String uuid);
+	
+}

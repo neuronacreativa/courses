@@ -4,10 +4,6 @@ services:
     container_name: posts-microlith
     hostname: posts-microlith
     build: posts/
-    #volumes:
-    #  - ./docker/tomcat/app/logs:/usr/local/tomcat/logs
-    #  - ./docker/tomcat/app/webapps:/usr/local/tomcat/webapps:rw
-    #  - ./docker/tomcat/app/conf:/usr/local/tomcat/conf:rw
     ports:
       - 8082:8082
     depends_on:
@@ -17,10 +13,6 @@ services:
     container_name: users-microlith
     hostname: users-microlith
     build: users/
-    #volumes:
-    #  - ./docker/tomcat/app/logs:/usr/local/tomcat/logs
-    #  - ./docker/tomcat/app/webapps:/usr/local/tomcat/webapps:rw
-    #  - ./docker/tomcat/app/conf:/usr/local/tomcat/conf:rw
     ports:
       - 8083:8083
     depends_on:
