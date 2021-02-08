@@ -1,3 +1,3 @@
 # Courses
 
-Repository with tons of recourses about my courses
+Repository with tons of resources about my courses
