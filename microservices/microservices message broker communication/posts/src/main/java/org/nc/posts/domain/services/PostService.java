@@ -1,23 +1,20 @@
-package org.nc.posts.service;
+package org.nc.posts.domain.services;
 
 import java.util.UUID;
 
 import org.nc.posts.domain.dto.request.PostRequest;
 import org.nc.posts.domain.dto.response.PostResponse;
 import org.nc.posts.domain.entities.Post;
+import org.nc.posts.domain.events.PostCreated;
+import org.nc.posts.domain.events.PostDeleted;
 import org.nc.posts.domain.repositories.PostRepository;
-import org.nc.posts.domain.services.PostsService;
-import org.nc.posts.infrastructure.communication.http.client.PostsClient;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.nc.posts.domain.shared.Publisher;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostService  implements PostsService{
+public class PostService {
 
-	@Autowired
-	PostsClient postsClient;
-	
-	public PostResponse create(PostRequest postRequest, PostRepository repository) {
+	public PostResponse create(PostRequest postRequest, PostRepository repository, Publisher publisher) {
 		
 		Post post = new Post();
 
@@ -34,8 +31,12 @@ public class PostService  implements PostsService{
 		postResponse.setTitle(post.getTitle());
 		postResponse.setContent(post.getContent());
 		postResponse.setUuidUser(post.getUserUuid());
-
-		postsClient.putIncreasePostsInUser(post.getUserUuid());
+		
+		/*
+		 * Creating our domain event and send it to our queue
+		 */
+		PostCreated postCreated = new PostCreated(post.getUuid(), post.getUserUuid());
+		publisher.publish(postCreated);
 
 		return postResponse;
 		
@@ -74,12 +75,16 @@ public class PostService  implements PostsService{
 		return postResponse;
 	}
 	
-	public void delete(String uuid, PostRepository repository) {
+	public void delete(String uuid, PostRepository repository, Publisher publisher) {
 		
 		Post post = repository.findByUuid(uuid);
-		postsClient.putDecreasePostsInUser(post.getUserUuid());
-
 		repository.deleteByUuid(uuid);
+		
+		/*
+		 * Creating our domain event and send it to our queue
+		 */
+		PostDeleted postDeleted = new PostDeleted(post.getUuid(), post.getUserUuid());
+		publisher.publish(postDeleted);
 	}
 
 }

@@ -2,8 +2,10 @@ package org.nc.posts.infrastructure.controllers;
 
 import org.nc.posts.domain.dto.request.PostRequest;
 import org.nc.posts.domain.dto.response.PostResponse;
+import org.nc.posts.domain.services.PostService;
+import org.nc.posts.infrastructure.mq.services.PostCreatedPublisher;
+import org.nc.posts.infrastructure.mq.services.PostDeletedPublisher;
 import org.nc.posts.infrastructure.persistence.h2.H2PostRepository;
-import org.nc.posts.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,12 +28,18 @@ public class PostController {
 	@Autowired
 	private H2PostRepository repository;
 	
+	@Autowired
+	private PostCreatedPublisher postCreatedPublisher;
+	
+	@Autowired
+	private PostDeletedPublisher postDeletedPublisher;
+	
     @PostMapping
 	public ResponseEntity<PostResponse> create(
 			@RequestPart("post") PostRequest postRequest){
 		
 		return ResponseEntity.ok().body(
-				service.create(postRequest, repository)
+				service.create(postRequest, repository, postCreatedPublisher)
 		);
 	}
     
@@ -45,7 +53,7 @@ public class PostController {
 	}
     
     @PutMapping
-	public ResponseEntity<PostResponse> read(
+	public ResponseEntity<PostResponse> update(
 			@RequestParam("uuid") String uuid,
 			@RequestPart("post") PostRequest postRequest){
 		
@@ -58,7 +66,7 @@ public class PostController {
 	public ResponseEntity<PostResponse> delete(
 			@PathVariable(name = "uuid") String uuid){
 		
-    	service.delete(uuid, repository);
+    	service.delete(uuid, repository, postDeletedPublisher);
     	
 		return ResponseEntity.ok().body(null);
 	}
