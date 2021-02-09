@@ -23,5 +23,5 @@ RABBITMQ_DEFAULT_PASS: microservices
 
 #### RabbitMQ Console
 ```
-[http://localhost:8181](http://localhost:8181 "RabbitMQ's Console")
+[http://localhost:8181](http://localhost:8181)
 ```
