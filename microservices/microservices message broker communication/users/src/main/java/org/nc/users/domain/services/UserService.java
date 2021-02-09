@@ -1,4 +1,4 @@
-package org.nc.users.service;
+package org.nc.users.domain.services;
 
 import java.util.UUID;
 
@@ -6,11 +6,10 @@ import org.nc.users.domain.dto.request.UserRequest;
 import org.nc.users.domain.dto.response.UserResponse;
 import org.nc.users.domain.entities.User;
 import org.nc.users.domain.repositories.UserRepository;
-import org.nc.users.domain.services.UsersService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService implements UsersService{
+public class UserService {
 
 	public UserResponse create(UserRequest userRequest, UserRepository repository) {
 		
@@ -56,7 +55,7 @@ public class UserService implements UsersService{
 	public UserResponse update(String uuid, UserRequest userRequest, UserRepository repository) {
 		
 		User user = repository.findByUuid(uuid);
-		
+
 		user.setName(userRequest.getName());
 		user.setLastname(userRequest.getLastname());
 		user.setUsername(userRequest.getUsername());
@@ -82,6 +81,10 @@ public class UserService implements UsersService{
 	
 	public UserResponse increasePostCount(String uuid, UserRepository repository) {
 		User user = repository.findByUuid(uuid);
+		
+		if (user == null) {
+			return new UserResponse();
+		}
 		
 		user.setPostCount(user.getPostCount() + 1);
 		repository.save(user);

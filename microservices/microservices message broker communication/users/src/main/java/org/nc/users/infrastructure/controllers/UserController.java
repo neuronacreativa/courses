@@ -2,8 +2,8 @@ package org.nc.users.infrastructure.controllers;
 
 import org.nc.users.domain.dto.request.UserRequest;
 import org.nc.users.domain.dto.response.UserResponse;
+import org.nc.users.domain.services.UserService;
 import org.nc.users.infrastructure.persistence.h2.H2UserRepository;
-import org.nc.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
