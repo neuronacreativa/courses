@@ -24,8 +24,8 @@ docker run -p 8082:8082 nc/posts
 
 ### H2 Credentials
 ```
-JDBC URL: jdbc:h2:mem:microlithdb
-User Name: microlith
-Password: microlith
+JDBC URL: jdbc:h2:mem:postsdb
+User Name: posts
+Password: posts
 ```
 
