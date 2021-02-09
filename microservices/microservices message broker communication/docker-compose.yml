@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  posts:
+    container_name: posts
+    hostname: posts
+    build: posts/
+    ports:
+      - 8082:8082
+
+  users:
+    container_name: users
+    hostname: users
+    build: users/
+    ports:
+      - 8083:8083
+
+  rabbitmq:
+    container_name: microservices-rabbitmq
+    image: rabbitmq:3.7-management
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "8181:15672"
+    env_file:
+      - .env
