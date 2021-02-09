@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "fc034d31-d6c5-430d-8824-02105f6e89ea",
-		"name": "Microlith-Sample",
+		"_postman_id": "10a3f39e-1198-4d6f-9089-39affc2c7a1c",
+		"name": "Microservices-RabbitMQ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -54,7 +54,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8083/user/86ae1168-f83c-47b3-aeea-d769e2721154",
+							"raw": "http://127.0.0.1:8083/user/591441c8-8a22-4d55-a5e4-9c50ed01fb4e",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -65,7 +65,7 @@
 							"port": "8083",
 							"path": [
 								"user",
-								"86ae1168-f83c-47b3-aeea-d769e2721154"
+								"591441c8-8a22-4d55-a5e4-9c50ed01fb4e"
 							]
 						}
 					},
@@ -99,16 +99,19 @@
 					"response": []
 				},
 				{
-					"name": "User PUT - increasePostCount",
+					"name": "User GET - increasePostCount",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "PUT",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8083/user/increasePostCount/8c34eba0-0814-47ac-81aa-350e4742d284",
+							"raw": "http://127.0.0.1:8083/user/increasePostCount/c2ebb88f-5ded-4c51-8030-6761ff919e38",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -120,7 +123,7 @@
 							"path": [
 								"user",
 								"increasePostCount",
-								"8c34eba0-0814-47ac-81aa-350e4742d284"
+								"c2ebb88f-5ded-4c51-8030-6761ff919e38"
 							]
 						}
 					},
@@ -141,7 +144,7 @@
 							"formdata": [
 								{
 									"key": "post",
-									"value": "{\"title\": \"Título de pruebas\", \"content\": \"Lorem ipsum sit amet\", \"uuidUser\": \"86ae1168-f83c-47b3-aeea-d769e2721154\"}",
+									"value": "{\"title\": \"Título de pruebas\", \"content\": \"Lorem ipsum sit amet\", \"uuidUser\": \"1a0a978d-b64d-43e8-b026-859320f41457\"}",
 									"contentType": "application/json",
 									"type": "text"
 								}
@@ -177,7 +180,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8082/post/35503a24-3f54-4cb9-b2a1-57f9e9e9830e",
+							"raw": "http://127.0.0.1:8082/post/224f7d79-d231-437c-9588-7c01e8973970",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -188,7 +191,7 @@
 							"port": "8082",
 							"path": [
 								"post",
-								"35503a24-3f54-4cb9-b2a1-57f9e9e9830e"
+								"224f7d79-d231-437c-9588-7c01e8973970"
 							]
 						}
 					},
@@ -204,7 +207,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8082/post/eb6f56af-490b-4efe-8cc6-8672ac0bf66c",
+							"raw": "http://127.0.0.1:8082/post/591441c8-8a22-4d55-a5e4-9c50ed01fb4e",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -215,7 +218,7 @@
 							"port": "8082",
 							"path": [
 								"post",
-								"eb6f56af-490b-4efe-8cc6-8672ac0bf66c"
+								"591441c8-8a22-4d55-a5e4-9c50ed01fb4e"
 							]
 						}
 					},
