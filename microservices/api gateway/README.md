@@ -1,6 +1,6 @@
-# Microservices own infrastructure
+# Microservices - API Gateway integration
 
-Users and Posts microservices, with their own H2 database, and RabbitMQ integration.
+Users and Posts microservices, with their own H2 database, and RabbitMQ integration. Those MS are under an API Gateway based on Spring Cloud Gateway.
 
 ## Executing docker-compose
 
