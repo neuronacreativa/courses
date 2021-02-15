@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>org.nc</groupId>
-	<artifactId>microservices-message-broker-communication</artifactId>
+	<artifactId>microservices-api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
