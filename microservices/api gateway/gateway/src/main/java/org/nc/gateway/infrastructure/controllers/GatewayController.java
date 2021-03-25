@@ -7,6 +7,7 @@ import org.nc.gateway.domain.dto.AuthResponse;
 import org.nc.gateway.infrastructure.repository.H2Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,15 @@ public class GatewayController {
 	
 	@Autowired
 	H2Repository repository;
+	
+	// TODO Add Authorization header
 
+	/**
+	 * Login
+	 * 
+	 * @param authRequest
+	 * @return
+	 */
 	@PostMapping
 	public ResponseEntity<AuthResponse> create(
 			@RequestBody AuthRequest authRequest){
@@ -32,12 +41,33 @@ public class GatewayController {
 		);
 	}
 	
+	/**
+	 * Retrieve Session data
+	 * 
+	 * @param authReadRequest
+	 * @return
+	 */
 	@GetMapping
 	public ResponseEntity<AuthResponse> read(
 			@RequestBody AuthReadRequest authReadRequest){
 
 		return ResponseEntity.ok().body(
 				service.read(authReadRequest, repository)
+		);
+	}
+	
+	/**
+	 * Logout
+	 * 
+	 * @param authReadRequest
+	 * @return
+	 */
+	@DeleteMapping
+	public ResponseEntity<AuthResponse> delete(
+			@RequestBody AuthReadRequest authReadRequest){
+
+		return ResponseEntity.ok().body(
+				service.delete(authReadRequest, repository)
 		);
 	}
     

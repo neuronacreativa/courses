@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER")
-public class User {
+@Table(name = "SESSION")
+public class Session {
 
 	@Id
 	@Column(name = "UUID", unique = true, nullable = false)
@@ -29,12 +29,11 @@ public class User {
 	@Column(name="EXPIRATION", nullable = false)
 	private Date expiration;
 	
-	public User() {
+	public Session() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String uuid, String username, String email, String name, String surname, String jwt, Date creation,
+	public Session(String uuid, String username, String email, String name, String surname, String jwt, Date creation,
 			Date expiration) {
 		super();
 		this.uuid = uuid;
