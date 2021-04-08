@@ -102,3 +102,5 @@ target/
 microservices/microservices sharing infrastructure/docker/mysql/data
 microservices/microservices own infrastructure/docker/mysql/data
 .classpath
+
+.idea/
