@@ -1,5 +1,5 @@
 package nc.courses.solid.l.notallmethodssample.secondapproach;
 
-public interface File {
+public interface FileRenamer {
     public void rename(String name);
 }
