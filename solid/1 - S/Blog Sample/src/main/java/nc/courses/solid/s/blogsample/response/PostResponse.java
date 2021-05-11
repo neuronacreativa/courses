@@ -1,4 +1,4 @@
-package nc.courses.solid.s.blogsample;
+package nc.courses.solid.s.blogsample.response;
 
 public class PostResponse {
 

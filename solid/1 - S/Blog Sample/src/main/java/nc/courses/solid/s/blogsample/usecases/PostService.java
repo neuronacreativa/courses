@@ -1,10 +1,10 @@
-package nc.courses.solid.s.blogsample.service;
+package nc.courses.solid.s.blogsample.usecases;
 
 import java.util.UUID;
 
 import nc.courses.solid.s.blogsample.repository.PostRepository;
 import nc.courses.solid.s.blogsample.request.PostRequest;
-import nc.courses.solid.s.blogsample.PostResponse;
+import nc.courses.solid.s.blogsample.response.PostResponse;
 import nc.courses.solid.s.blogsample.model.Post;
 import org.springframework.stereotype.Service;
 
