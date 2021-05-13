@@ -25,8 +25,6 @@ public class User {
 	private String username;
 	@Column(name = "EMAIL", nullable = false)
 	private String email;
-	@Column(name = "POSTCOUNT", nullable = false)
-	private Integer postCount;
 	@OneToMany(
 			cascade = CascadeType.REMOVE,
 	        fetch = FetchType.LAZY, 
@@ -35,12 +33,6 @@ public class User {
 	
 	public String getUuid() {
 		return uuid;
-	}
-	public Integer getPostCount() {
-		return postCount;
-	}
-	public void setPostCount(Integer postCount) {
-		this.postCount = postCount;
 	}
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;

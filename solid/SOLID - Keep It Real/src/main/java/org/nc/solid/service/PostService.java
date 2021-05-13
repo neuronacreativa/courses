@@ -21,100 +21,57 @@ public class PostService {
 	@Autowired
 	private H2PostRepository postRepository;
 
+	private PostResponse getPostResponse(Post post, User user) {
+		postRepository.save(post);
+
+		PostResponse postResponse = new PostResponse();
+		UserResponse userResponse = new UserResponse();
+
+		userResponse.setUuid(user.getUuid());
+		userResponse.setName(user.getName());
+		userResponse.setLastname(user.getLastname());
+		userResponse.setUsername(user.getUsername());
+		userResponse.setEmail(user.getEmail());
+
+		postResponse.setUuid(post.getUuid());
+		postResponse.setTitle(post.getTitle());
+		postResponse.setContent(post.getContent());
+		postResponse.setUser(userResponse);
+
+		return postResponse;
+	}
+
 	public PostResponse create(PostRequest postRequest) {
-		
 		Post post = new Post();
 		User user = userRepository.findByUuid(postRequest.getUuidUser());
+
 		post.setUuid(UUID.randomUUID().toString());
 		post.setTitle(postRequest.getTitle());
 		post.setContent(postRequest.getContent());
 		post.setUser(user);
-		
-		user.setPostCount(user.getPostCount() + 1);
-		userRepository.save(user);
 
-		postRepository.save(post);
-		
-		PostResponse postResponse = new PostResponse();
-		UserResponse userResponse = new UserResponse();
-		
-		userResponse.setUuid(user.getUuid());
-		userResponse.setName(user.getName());
-		userResponse.setLastname(user.getLastname());
-		userResponse.setUsername(user.getUsername());
-		userResponse.setEmail(user.getEmail());
-		userResponse.setPostCount(user.getPostCount());
-		
-		postResponse.setUuid(post.getUuid());
-		postResponse.setTitle(post.getTitle());
-		postResponse.setContent(post.getContent());
-		postResponse.setUser(userResponse);
-		
-		return postResponse;
-		
+		return getPostResponse(post, user);
 	}
-	
+
 	public PostResponse read(String uuid) {
-		
 		Post post = postRepository.findByUuid(uuid);
 		User user = post.getUser();
-		PostResponse postResponse = new PostResponse();
-		
-		UserResponse userResponse = new UserResponse();
-		
-		userResponse.setUuid(user.getUuid());
-		userResponse.setName(user.getName());
-		userResponse.setLastname(user.getLastname());
-		userResponse.setUsername(user.getUsername());
-		userResponse.setEmail(user.getEmail());
-		userResponse.setPostCount(user.getPostCount());
 
-		postResponse.setUuid(post.getUuid());
-		postResponse.setTitle(post.getTitle());
-		postResponse.setContent(post.getContent());
-		postResponse.setUser(userResponse);
-		
-		return postResponse;
-		
+		return getPostResponse(post, user);
 	}
 	
 	public PostResponse update(String uuid, PostRequest postRequest) {
-		
 		Post post = postRepository.findByUuid(uuid);
 		User user = post.getUser();
 		
 		post.setTitle(postRequest.getTitle());
 		post.setContent(postRequest.getContent());
 
-		postRepository.save(post);
-		
-		PostResponse postResponse = new PostResponse();
-		UserResponse userResponse = new UserResponse();
-		
-		userResponse.setUuid(user.getUuid());
-		userResponse.setName(user.getName());
-		userResponse.setLastname(user.getLastname());
-		userResponse.setUsername(user.getUsername());
-		userResponse.setEmail(user.getEmail());
-		userResponse.setPostCount(user.getPostCount());
-		
-		postResponse.setUuid(post.getUuid());
-		postResponse.setTitle(post.getTitle());
-		postResponse.setContent(post.getContent());
-		postResponse.setUser(userResponse);
-		
-		return postResponse;
+		return getPostResponse(post, user);
 	}
 	
 	public void delete(String uuid) {
-		
-		String userUuid = postRepository.findByUuid(uuid).getUser().getUuid();
-
 		postRepository.deleteByUuid(uuid);
-		
-		User user = userRepository.findByUuid(userUuid);
-		user.setPostCount(user.getPostCount() - 1);
-		userRepository.save(user);
 	}
 
 }

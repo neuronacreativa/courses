@@ -40,9 +40,9 @@ public class UserController {
 		);
 	}
     
-    @PutMapping
-	public ResponseEntity<UserResponse> read(
-			@RequestParam("uuid") String uuid,
+    @PutMapping("/{uuid}")
+	public ResponseEntity<UserResponse> put(
+			@PathVariable(name = "uuid") String uuid,
 			@RequestPart("user") UserRequest userRequest){
 		
 		return ResponseEntity.ok().body(

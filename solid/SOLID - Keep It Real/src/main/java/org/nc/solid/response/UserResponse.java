@@ -7,14 +7,7 @@ public class UserResponse {
 	private String lastname;
 	private String username;
 	private String email;
-	private Integer postCount;
-	
-	public Integer getPostCount() {
-		return postCount;
-	}
-	public void setPostCount(Integer postCount) {
-		this.postCount = postCount;
-	}
+
 	public String getUuid() {
 		return uuid;
 	}

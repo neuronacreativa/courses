@@ -40,9 +40,9 @@ public class PostController {
 		);
 	}
     
-    @PutMapping
-	public ResponseEntity<PostResponse> read(
-			@RequestParam("uuid") String uuid,
+    @PutMapping("/{uuid}")
+	public ResponseEntity<PostResponse> put(
+			@PathVariable(name = "uuid") String uuid,
 			@RequestPart("post") PostRequest postRequest){
 		
 		return ResponseEntity.ok().body(
