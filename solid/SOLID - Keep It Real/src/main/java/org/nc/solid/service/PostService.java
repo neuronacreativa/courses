@@ -15,11 +15,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostService {
 
-	@Autowired
-	private H2UserRepository userRepository;
+	private final H2UserRepository userRepository;
+	private final H2PostRepository postRepository;
 
 	@Autowired
-	private H2PostRepository postRepository;
+	public PostService(H2UserRepository userRepository, H2PostRepository postRepository) {
+		this.userRepository = userRepository;
+		this.postRepository = postRepository;
+	}
 
 	private PostResponse getPostResponse(Post post, User user) {
 		postRepository.save(post);

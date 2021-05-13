@@ -12,8 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+	private final H2UserRepository userRepository;
+
 	@Autowired
-	private H2UserRepository userRepository;
+	public UserService(H2UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	private UserResponse getUserResponse(User user) {
 		UserResponse userResponse = new UserResponse();
