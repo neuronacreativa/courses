@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("post")
 public class PostController {
 
+	private final PostService service;
+
 	@Autowired
-	private PostService service;
+	public PostController(PostService postService) {
+		this.service = postService;
+	}
 
     @PostMapping
 	public ResponseEntity<PostResponse> create(
