@@ -1,6 +1,6 @@
-# SOLID - Keep It Real
+# Monolith
 
-SOLID sample application, based on a classic blog application.
+Monolith sample application, based on a classic blog application.
 
 ## Generating and Executing Docker image
 
@@ -10,8 +10,8 @@ SOLID sample application, based on a classic blog application.
  4. Run this to generate the docker image, and run it:
  
 ```
-docker build -t nc/solid .
-docker run -p 8081:8081 nc/solid
+docker build -t nc/monolith .
+docker run -p 8081:8081 nc/monolith
 ```
 
 ## API Documentation - Swagger UI
@@ -24,8 +24,8 @@ docker run -p 8081:8081 nc/solid
 
 ### H2 Credentials
 ```
-JDBC URL: jdbc:h2:mem:soliddb
-User Name: solid
-Password: solid
+JDBC URL: jdbc:h2:mem:monolithdb
+User Name: monolith
+Password: monolith
 ```
 
