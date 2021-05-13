@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface H2UserRepository extends CrudRepository<User, String>{
 	
-	public User findByUuid(String uuid);
+	User findByUuid(String uuid);
 	
-	public void deleteByUuid(String uuid);
+	void deleteByUuid(String uuid);
 	
 }

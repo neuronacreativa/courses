@@ -1,11 +1,10 @@
 package org.nc.solid.response;
 
 public class PostResponse {
-	
+
 	private String uuid;
 	private String title;
 	private String content;
-	private Integer commentCount;
 	private UserResponse user;
 	
 	public UserResponse getUser() {
@@ -32,12 +31,5 @@ public class PostResponse {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Integer getCommentCount() {
-		return commentCount;
-	}
-	public void setCommentCount(Integer commentCount) {
-		this.commentCount = commentCount;
-	}
-
 	
 }

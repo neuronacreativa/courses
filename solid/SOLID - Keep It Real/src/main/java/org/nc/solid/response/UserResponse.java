@@ -7,7 +7,6 @@ public class UserResponse {
 	private String lastname;
 	private String username;
 	private String email;
-
 	public String getUuid() {
 		return uuid;
 	}
