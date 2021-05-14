@@ -1,4 +1,4 @@
-package org.nc.solid.application.usecase.notification.dto;
+package org.nc.solid.application.usecase.notification.create.dto;
 
 import org.nc.solid.domain.entities.User;
 

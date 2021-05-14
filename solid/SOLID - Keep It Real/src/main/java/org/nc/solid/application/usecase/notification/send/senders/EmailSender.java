@@ -1,6 +1,6 @@
-package org.nc.solid.application.service.sendnotification;
+package org.nc.solid.application.usecase.notification.send.senders;
 
-import org.nc.solid.application.usecase.notification.interfaces.SenderEmail;
+import org.nc.solid.application.usecase.notification.send.interfaces.SenderEmail;
 import org.nc.solid.domain.entities.Notification;
 
 public class EmailSender implements SenderEmail {
@@ -9,5 +9,6 @@ public class EmailSender implements SenderEmail {
         /*
          * Sending email notification
          */
+        System.out.println("Sending Email Notification: " + notification.getBody());
     }
 }
