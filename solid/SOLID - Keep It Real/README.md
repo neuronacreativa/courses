@@ -2,6 +2,16 @@
 
 Monolith sample application, based on a classic blog application.
 
+## Compile and generate executable package
+
+ 1. Run terminal app (terminal, iterm, powershell, ...).
+ 2. Change dir to pom.xml location
+ 3. Execute this
+
+```
+mvnw clean install
+```
+
 ## Generating and Executing Docker image
 
  1. Run docker.
