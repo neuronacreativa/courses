@@ -1,6 +1,6 @@
-# Monolith
+# SOLID
 
-Monolith sample application, based on a classic blog application.
+SOLID sample application, based on a classic blog application.
 
 ## Compile and generate executable package
 
@@ -34,8 +34,8 @@ docker run -p 8081:8081 nc/monolith
 
 ### H2 Credentials
 ```
-JDBC URL: jdbc:h2:mem:monolithdb
-User Name: monolith
-Password: monolith
+JDBC URL: jdbc:h2:mem:soliddb
+User Name: solid
+Password: solid
 ```
 
