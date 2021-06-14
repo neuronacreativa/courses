@@ -9,7 +9,6 @@ public class AuthRequest {
 	
 	public AuthRequest() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public AuthRequest(String username, String email, String name, String surname) {

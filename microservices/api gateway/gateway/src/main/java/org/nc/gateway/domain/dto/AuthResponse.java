@@ -13,7 +13,6 @@ public class AuthResponse {
 	
 	public AuthResponse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public AuthResponse(String uuid, String username, String email, String name, String surname, String jwt,
