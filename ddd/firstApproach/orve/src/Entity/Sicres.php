@@ -15,7 +15,7 @@ class Sicres
     private SicresFormulario $sicresFormulario;
 
     /**
-     * Sicres constructor.
+     * SicresService constructor.
      * @param SicresOrigen $sicresOrigen
      * @param SicresDestino $sicresDestino
      * @param SicresInteresado $sicresInteresado
