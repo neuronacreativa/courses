@@ -20,8 +20,8 @@ mvnw clean install
  4. Run this to generate the docker image, and run it:
  
 ```
-docker build -t nc/monolith .
-docker run -p 8081:8081 nc/monolith
+docker build -t nc/solid .
+docker run -p 8081:8081 nc/solid
 ```
 
 ## API Documentation - Swagger UI
