@@ -5,6 +5,11 @@ public class AbstractProduct implements Product{
     private String uuid;
     private String name;
 
+    public AbstractProduct(String uuid, String name) {
+        this.uuid = uuid;
+        this.name = name;
+    }
+
     @Override
     public Integer getStock() {
         throw new UnsupportedOperationException();

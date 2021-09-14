@@ -6,6 +6,12 @@ public class ConcreteProduct implements Product{
     private String uuid;
     private String name;
 
+    public ConcreteProduct(Integer stock, String uuid, String name) {
+        this.stock = stock;
+        this.uuid = uuid;
+        this.name = name;
+    }
+
     @Override
     public Integer getStock() {
         return this.stock;

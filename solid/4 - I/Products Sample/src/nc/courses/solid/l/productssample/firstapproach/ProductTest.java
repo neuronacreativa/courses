@@ -10,7 +10,13 @@ public class ProductTest {
         ProductManager productManager = new ProductManager();
 
         Assertions.assertDoesNotThrow(
-                () -> productManager.add(new ConcreteProduct())
+                () -> productManager.add(
+                        new ConcreteProduct(
+                                100,
+                                "valid-uuid",
+                                "This is a concrete product name"
+                        )
+                )
         );
     }
 
@@ -19,7 +25,12 @@ public class ProductTest {
         ProductManager productManager = new ProductManager();
 
         Assertions.assertDoesNotThrow(
-                () -> productManager.add(new AbstractProduct())
+                () -> productManager.add(
+                        new AbstractProduct(
+                                "valid-uuid",
+                                "This is an abstract product name"
+                        )
+                )
         );
     }
 }
