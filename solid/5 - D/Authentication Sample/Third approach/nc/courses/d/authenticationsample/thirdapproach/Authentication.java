@@ -2,9 +2,9 @@ package nc.courses.d.authenticationsample.thirdapproach;
 
 public class Authentication {
 
-    private final UserProviderInterface userProvider;
+    private final UserProvider userProvider;
 
-    public Authentication(UserProviderInterface userProvider)
+    public Authentication(UserProvider userProvider)
     {
         this.userProvider = userProvider;
     }
