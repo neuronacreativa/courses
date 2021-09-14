@@ -1,5 +1,9 @@
 <?php
 
+namespace DIFFERENT_SUBSTITUTES_SECOND_APPROACH;
+
+use Countable;
+use Iterator;
 
 class RouteCollection implements Countable, Iterator
 {

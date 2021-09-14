@@ -2,9 +2,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotEquals;
 
-final class SquareTest {
+public class SquareTest {
     @Test
-    void not_respect_the_liskov_substitution_principle_breaking_the_rectangle_laws_while_modifying_its_length() {
+    public void not_respect_the_liskov_substitution_principle_breaking_the_rectangle_laws_while_modifying_its_length() {
         Integer squareLengthAndWidth = 2;
         Square square = new Square(squareLengthAndWidth);
 
