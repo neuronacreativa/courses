@@ -4,11 +4,11 @@ namespace DIFFERENT_SUBSTITUTES_SECOND_APPROACH;
 
 class AdvancedRouter implements RouterInterface
 {
-    public function getRoutes() : \RouteCollection
+    public function getRoutes()
     {
-        $routes = new RouteCollection();
-        // add objects to $routes
-        $routes->add("This is an Advanced Route item");
-        return new \RouteCollection();
+        // We have to use types compatible with Iterator and Countable interfaces
+        $routeCollection = new RouteCollectionInterface();
+        // Doing things with $routeCollection
+        return $routeCollection;
     }
 }
