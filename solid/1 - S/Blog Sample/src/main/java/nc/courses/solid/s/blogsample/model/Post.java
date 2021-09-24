@@ -16,7 +16,7 @@ public class Post {
     private String title;
     @Column(name = "CONTENT", nullable = false)
     private String content;
-    @Column(name = "USERUUID", nullable = false)
+    @Column(name = "USER_UUID", nullable = false)
     private String userUuid;
 
     public String getUuid() {
