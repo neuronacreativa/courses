@@ -1,4 +1,4 @@
-package org.nc.monolith.service;
+package org.nc.monolith.application;
 
 import java.util.UUID;
 
@@ -8,13 +8,12 @@ import org.nc.monolith.domain.dto.response.UserResponse;
 import org.nc.monolith.domain.entities.Post;
 import org.nc.monolith.domain.entities.User;
 import org.nc.monolith.domain.repositories.PostRepository;
-import org.nc.monolith.domain.services.MonolithService;
 import org.nc.monolith.infrastructure.persistence.h2.H2UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostService  implements MonolithService{
+public class PostService {
 
 	@Autowired
 	private H2UserRepository userRepository;

@@ -1,4 +1,4 @@
-package org.nc.monolith.service;
+package org.nc.monolith.application;
 
 import java.util.UUID;
 
@@ -6,11 +6,10 @@ import org.nc.monolith.domain.dto.request.UserRequest;
 import org.nc.monolith.domain.dto.response.UserResponse;
 import org.nc.monolith.domain.entities.User;
 import org.nc.monolith.domain.repositories.UserRepository;
-import org.nc.monolith.domain.services.MonolithService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService implements MonolithService{
+public class UserService {
 
 	public UserResponse create(UserRequest userRequest, UserRepository repository) {
 		

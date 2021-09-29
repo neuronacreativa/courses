@@ -17,9 +17,9 @@ public class User {
 	@Id
 	@Column(name = "UUID", unique = true, nullable = false)
 	private String uuid;
-	@Column(name = "NAME", nullable = true)
+	@Column(name = "NAME")
 	private String name;
-	@Column(name = "LASTNAME", nullable = true)
+	@Column(name = "LASTNAME")
 	private String lastname;
 	@Column(name = "USERNAME", nullable = false)
 	private String username;

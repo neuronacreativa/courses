@@ -2,8 +2,8 @@ package org.nc.monolith.infrastructure.controllers;
 
 import org.nc.monolith.domain.dto.request.UserRequest;
 import org.nc.monolith.domain.dto.response.UserResponse;
-import org.nc.monolith.infrastructure.persistence.h2.H2UserRepository;
-import org.nc.monolith.service.UserService;
+import org.nc.monolith.application.UserService;
+import org.nc.monolith.infrastructure.persistence.h2.user.H2UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,7 +45,7 @@ public class UserController {
 	}
     
     @PutMapping
-	public ResponseEntity<UserResponse> read(
+	public ResponseEntity<UserResponse> update(
 			@RequestParam("uuid") String uuid,
 			@RequestPart("user") UserRequest userRequest){
 		

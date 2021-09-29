@@ -2,8 +2,8 @@ package org.nc.monolith.infrastructure.controllers;
 
 import org.nc.monolith.domain.dto.request.PostRequest;
 import org.nc.monolith.domain.dto.response.PostResponse;
-import org.nc.monolith.infrastructure.persistence.h2.H2PostRepository;
-import org.nc.monolith.service.PostService;
+import org.nc.monolith.application.PostService;
+import org.nc.monolith.infrastructure.persistence.h2.post.H2PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,7 +45,7 @@ public class PostController {
 	}
     
     @PutMapping
-	public ResponseEntity<PostResponse> read(
+	public ResponseEntity<PostResponse> update(
 			@RequestParam("uuid") String uuid,
 			@RequestPart("post") PostRequest postRequest){
 		
