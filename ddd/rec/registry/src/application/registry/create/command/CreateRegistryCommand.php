@@ -1,7 +1,8 @@
 <?php
 
-namespace App\registry\application\registry\create\dto;
+namespace App\registry\application\registry\create\command;
 
+use App\registry\domain\command\Command;
 use App\registry\domain\entity\Document;
 use App\registry\domain\entity\Interested;
 use App\registry\domain\entity\Registry;
@@ -9,9 +10,8 @@ use App\registry\domain\entity\RegistryOffice;
 use App\registry\domain\entity\Unit;
 use App\registry\domain\exception\EntityException;
 
-class CreateRegistryRequest
+class CreateRegistryCommand implements Command
 {
-
     private $type;
     private Interested $interested;
     private Unit $unit;
@@ -33,6 +33,7 @@ class CreateRegistryRequest
      */
     public function __construct($type, Interested $interested, Unit $unit, RegistryOffice $registryOffice, Document $document, $exchangerCode, $registryNumber, $subject)
     {
+        $this->uuid = "lkjsdlfkjsadflk";
         $this->type = $type;
         $this->interested = $interested;
         $this->unit = $unit;
@@ -122,6 +123,4 @@ class CreateRegistryRequest
     public function getType()
     {
         return $this->type;
-    }
-
-}
+    }}

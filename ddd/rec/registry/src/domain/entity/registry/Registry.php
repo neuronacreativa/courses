@@ -3,11 +3,12 @@
 namespace App\registry\domain\entity;
 
 use App\registry\domain\exception\EntityException;
+use App\registry\domain\shared\AggregateRoot;
 use App\registry\domain\shared\Entity;
 
-class Registry implements Entity
+class Registry extends AggregateRoot implements Entity
 {
-    private $uuid;
+    private string $uuid;
     private Interested $interested;
     private Unit $unit;
     private RegistryOffice $registryOffice;
@@ -26,10 +27,18 @@ class Registry implements Entity
      * @param ExchangerCode $exchangerCode
      * @param $registryNumber
      * @param $subject
-     * @param $uuid
      * @throws EntityException
      */
-    public function __construct(Interested $interested, Unit $unit, RegistryOffice $registryOffice, Document $document, Communication $communication, ExchangerCode $exchangerCode, $registryNumber, $subject)
+    public function __construct(
+        Interested $interested,
+        Unit $unit,
+        RegistryOffice $registryOffice,
+        Document $document,
+        Communication $communication,
+        ExchangerCode $exchangerCode,
+        $registryNumber,
+        $subject
+    )
     {
         // Generate a valid uuid
         $this->uuid = "This is a Uuid";
@@ -142,6 +151,14 @@ class Registry implements Entity
     public function getUuid()
     {
         return $this->uuid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
 }
