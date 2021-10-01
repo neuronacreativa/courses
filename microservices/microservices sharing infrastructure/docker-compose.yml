@@ -5,7 +5,7 @@ services:
     hostname: posts-microlith
     build: posts/
     ports:
-      - 8082:8082
+      - "8082:8082"
     depends_on:
       - mysql
 
@@ -14,7 +14,7 @@ services:
     hostname: users-microlith
     build: users/
     ports:
-      - 8083:8083
+      - "8083:8083"
     depends_on:
       - mysql
 
@@ -23,7 +23,7 @@ services:
     build:
       context: docker/mysql
     ports:
-      - 13306:3306
+      - "13306:3306"
     volumes:
       - ./docker/mysql/data/db:/var/lib/mysql
     command:

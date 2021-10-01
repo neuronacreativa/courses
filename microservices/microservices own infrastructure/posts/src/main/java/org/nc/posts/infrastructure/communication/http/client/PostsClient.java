@@ -13,7 +13,7 @@ public class PostsClient {
 	
     private static final String REST_URI_INCREASE = "http://127.0.0.1:8083/user/increasePostCount/";
     private static final String REST_URI_DECREASE = "http://127.0.0.1:8083/user/decreasePostCount/";
-    private Client client = ClientBuilder.newClient();
+    private final Client client = ClientBuilder.newClient();
 
     public Response putIncreasePostsInUser(String uuid) {
     	

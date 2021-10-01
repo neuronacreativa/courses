@@ -4,9 +4,9 @@ import org.nc.users.domain.entities.User;
 
 public interface UserRepository {
 	
-	public User save(User post);
+	User save(User post);
 	
-	public User findByUuid(String uuid);
+	User findByUuid(String uuid);
 	
-	public void deleteByUuid(String uuid);
+	void deleteByUuid(String uuid);
 }

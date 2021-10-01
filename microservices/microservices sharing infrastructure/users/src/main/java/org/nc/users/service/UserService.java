@@ -100,12 +100,8 @@ public class UserService implements UsersService{
 	
 	public UserResponse decreasePostCount(String uuid, UserRepository repository) {
 		User user = repository.findByUuid(uuid);
-		
-		if (user.getPostCount() - 1 >= 0) {
-			user.setPostCount(user.getPostCount() - 1);
-		}else {
-			user.setPostCount(0);
-		}
+
+        user.setPostCount(Math.max(user.getPostCount() - 1, 0));
 		repository.save(user);
 		
 		UserResponse userResponse = new UserResponse();

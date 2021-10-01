@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface H2Repository extends SessionRepository, CrudRepository<Session, String>{
 	
-	public Session findByUuid(String uuid);
+	Session findByUuid(String uuid);
 	
-	public void deleteByUuid(String uuid);
+	void deleteByUuid(String uuid);
 	
 }

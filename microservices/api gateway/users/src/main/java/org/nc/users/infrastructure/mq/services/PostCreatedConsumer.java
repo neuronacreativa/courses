@@ -31,6 +31,6 @@ public class PostCreatedConsumer {
     	 */
 		service.increasePostCount(postCreated.getUserUuid(), repository);
 		
-    	logger.info("Procesed message [" + postCreated.toString() + "] ");
+    	logger.info("Procesed message [" + postCreated + "] ");
     }
 }

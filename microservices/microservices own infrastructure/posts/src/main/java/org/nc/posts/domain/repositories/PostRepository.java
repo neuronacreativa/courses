@@ -6,11 +6,11 @@ import org.nc.posts.domain.entities.Post;
 
 public interface PostRepository {
 	
-	public Post save(Post post);
+	Post save(Post post);
 	
-	public Post findByUuid(String uuid);
+	Post findByUuid(String uuid);
 	
-	public List<Post> findByUserUuid(String uuid);
+	List<Post> findByUserUuid(String uuid);
 	
-	public void deleteByUuid(String uuid);
+	void deleteByUuid(String uuid);
 }

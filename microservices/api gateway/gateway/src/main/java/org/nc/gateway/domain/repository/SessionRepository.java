@@ -4,12 +4,12 @@ import org.nc.gateway.domain.entities.Session;
 
 public interface SessionRepository {
 	
-	public Session save(Session post);
+	Session save(Session post);
 	
-	public Session findByUuid(String uuid);
+	Session findByUuid(String uuid);
 	
-	public Session findByJwt(String jwt);
+	Session findByJwt(String jwt);
 		
-	public void deleteByUuid(String uuid);
+	void deleteByUuid(String uuid);
 
 }

@@ -28,10 +28,8 @@ public class GatewayController {
 
 	/**
 	 * Login
-	 * 
-	 * @param authRequest
-	 * @return
-	 */
+	 *
+     */
 	@PostMapping
 	public ResponseEntity<AuthResponse> create(
 			@RequestBody AuthRequest authRequest){
@@ -43,10 +41,8 @@ public class GatewayController {
 	
 	/**
 	 * Retrieve Session data
-	 * 
-	 * @param authReadRequest
-	 * @return
-	 */
+	 *
+     */
 	@GetMapping
 	public ResponseEntity<AuthResponse> read(
 			@RequestBody AuthReadRequest authReadRequest){
@@ -58,10 +54,8 @@ public class GatewayController {
 	
 	/**
 	 * Logout
-	 * 
-	 * @param authReadRequest
-	 * @return
-	 */
+	 *
+     */
 	@DeleteMapping
 	public ResponseEntity<AuthResponse> delete(
 			@RequestBody AuthReadRequest authReadRequest){

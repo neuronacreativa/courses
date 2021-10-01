@@ -5,14 +5,14 @@ services:
     hostname: posts
     build: posts/
     ports:
-      - 8082:8082
+      - "8082:8082"
 
   users:
     container_name: users
     hostname: users
     build: users/
     ports:
-      - 8083:8083
+      - "8083:8083"
 
   rabbitmq:
     container_name: microservices-rabbitmq

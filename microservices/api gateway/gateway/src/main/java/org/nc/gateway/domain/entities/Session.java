@@ -18,9 +18,9 @@ public class Session {
 	private String username;
 	@Column(name = "EMAIL", nullable = false)
 	private String email;
-	@Column(name = "NAME", nullable = true)
+	@Column(name = "NAME")
 	private String name;
-	@Column(name = "SURNAME", nullable = true)
+	@Column(name = "SURNAME")
 	private String surname;
 	@Column(name = "JWT", nullable = false)
 	private String jwt;

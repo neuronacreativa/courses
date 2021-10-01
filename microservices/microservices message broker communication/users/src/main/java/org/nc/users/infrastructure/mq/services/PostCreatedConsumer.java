@@ -1,11 +1,12 @@
 package org.nc.users.infrastructure.mq.services;
 
+import org.nc.users.infrastructure.persistence.h2.user.H2UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.nc.users.domain.events.PostCreated;
 import org.nc.users.domain.services.UserService;
-import org.nc.users.infrastructure.persistence.h2.H2UserRepository;
+import org.nc.users.infrastructure.persistence.h2.JpaUserRepository;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,6 @@ public class PostCreatedConsumer {
     	 */
 		service.increasePostCount(postCreated.getUserUuid(), repository);
 		
-    	logger.info("Procesed message [" + postCreated.toString() + "] ");
+    	logger.info("Processed message [" + postCreated + "] ");
     }
 }
