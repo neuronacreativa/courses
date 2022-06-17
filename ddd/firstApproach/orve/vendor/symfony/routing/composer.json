@@ -1,0 +1,51 @@
+{
+    "name": "symfony/routing",
+    "type": "library",
+    "description": "Maps an HTTP request to a set of configuration variables",
+    "keywords": ["routing", "router", "URL", "URI"],
+    "homepage": "https://symfony.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fabien Potencier",
+            "email": "fabien@symfony.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://symfony.com/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "../deprecation-contracts": "^2.1",
+        "../polyfill-php80": "^1.15"
+    },
+    "require-dev": {
+        "../config": "^5.3",
+        "../http-foundation": "^4.4|^5.0",
+        "../yaml": "^4.4|^5.0",
+        "symfony/expression-language": "^4.4|^5.0",
+        "../dependency-injection": "^4.4|^5.0",
+        "../../doctrine/annotations": "^1.12",
+        "../../psr/log": "~1.0"
+    },
+    "conflict": {
+        "../../doctrine/annotations": "<1.12",
+        "../config": "<5.3",
+        "../dependency-injection": "<4.4",
+        "../yaml": "<4.4"
+    },
+    "suggest": {
+        "../http-foundation": "For using a Symfony Request object",
+        "../config": "For using the all-in-one router or any loader",
+        "../yaml": "For using the YAML loader",
+        "symfony/expression-language": "For using expression matching"
+    },
+    "autoload": {
+        "psr-4": { "Symfony\\Component\\Routing\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "minimum-stability": "dev"
+}
